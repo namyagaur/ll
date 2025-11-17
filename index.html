@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>💌 A Royal Message From My Heart 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+    --gold: #d4b48c;
+    --light: #fff6eb;
+    --ink: #5b3a29;
+}
+
+/* 🏰 CASTLE BACKGROUND */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: url("https://i.imgur.com/0W5RzAV.jpeg") center/cover no-repeat fixed;
+    font-family: "Playfair Display", serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    color: var(--ink);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ✨ GOLDEN LIGHT */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255,230,190,0.45), rgba(0,0,0,0.55));
+    pointer-events: none;
+}
+
+/* ✨ FLOATING DUST */
+.dust {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.speck {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,245,210,0.85);
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: drift linear infinite;
+}
+
+@keyframes drift {
+    0% { transform: translateY(0px) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(0.4); opacity: 0; }
+}
+
+/* CENTER CONTAINER */
+.center-box {
+    width: 92%;
+    max-width: 540px;
+    z-index: 5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* SCROLL IMAGE */
+#closed-scroll {
+    width: 300px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 14px rgba(0,0,0,0.6));
+    transition: 0.3s ease;
+}
+
+#closed-scroll:hover {
+    transform: scale(1.05);
+}
+
+/* GOLD BUTTON */
+#open-button {
+    background: linear-gradient(135deg, #cfa97b, #9e774d);
+    padding: 12px 38px;
+    border-radius: 40px;
+    border: 2px solid rgba(255,245,210,0.4);
+    color: #3a271b;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.15em;
+    transition: 0.3s;
+}
+
+#open-button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 14px rgba(255,220,170,0.6);
+}
+
+/* PARCHMENT LETTER */
+#letter-content {
+    margin-top: 12px;
+    width: 100%;
+    background: url("https://i.imgur.com/TrlG4hB.jpeg") center/cover;
+    border: 3px solid rgba(100,60,20,0.32);
+    border-radius: 15px;
+
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    box-shadow: 
+        0 0 22px rgba(0,0,0,0.5),
+        inset 0 0 22px rgba(255,240,200,0.45);
+
+    transition: 
+        max-height 2.5s ease,
+        opacity 1.3s ease 0.5s,
+        padding 0.5s ease;
+}
+
+#letter-content.open {
+    padding: 40px 34px;
+    max-height: 6000px;
+    opacity: 1;
+}
+
+/* TEXT STYLE */
+h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: 3.2em;
+    color: #7c5032;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.75;
+    text-align: justify;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+.signature {
+    margin-top: 30px;
+    text-align: right;
+    font-family: "Dancing Script";
+    color: #7c5032;
+    font-size: 2.1em;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ✨ FLOATING DUST PARTICLES -->
+<div class="dust"></div>
+
+<div class="center-box">
+
+    <img id="closed-scroll" src="img/img.png">
+    <button id="open-button">Untie My Heart 💌</button>
+
+    <div id="letter-content">
+        <h1>My Dearest Love,</h1>
+
+        <p>I don’t know the perfect way to start this, so I’ll just say what my heart keeps repeating : I’m really grateful for you.</p>
+
+        <p>Every single day, in some small or big way, you show me what it feels like to be cared for so genuinely. And honestly, that’s something I never take lightly.</p>
+
+        <p>You make the difficult days easier, the ordinary moments sweeter, and you make me feel seen in a way I didn’t even know I needed.</p>
+
+        <p>I love the comfort you bring into my life… the kind where I can just be myself without thinking twice. I love how you understand me even in those moments when I don’t say much. I love the way you listen, the way you laugh, the way you make everything feel safe and warm.</p>
+
+        <p>You’re not just someone I love.  
+        You’re someone I’m thankful for.  
+        Someone I choose.  
+        Someone who makes me feel lucky in the smallest, simplest ways.</p>
+
+        <p>I love you, Tanishq.  
+        Deeply. Quietly. And without conditions.</p>
+
+        <p>And I’m honestly so proud that I get to call you mine.  
+        Thank you for being you for being patient, gentle, real, and everything my heart feels at home with.</p>
+
+        <p class="signature">Forever Yours,<br>Namya 💕</p>
+    </div>
+
+</div>
+
+<script>
+/* LETTER OPEN ANIMATION */
+document.getElementById("open-button").onclick =
+document.getElementById("closed-scroll").onclick = function() {
+    document.getElementById("open-button").style.display = "none";
+    document.getElementById("closed-scroll").style.display = "none";
+    document.getElementById("letter-content").classList.add("open");
+};
+
+/* DUST PARTICLE GENERATOR */
+const dust = document.querySelector(".dust");
+
+function makeDust() {
+    const speck = document.createElement("div");
+    speck.classList.add("speck");
+
+    speck.style.left = Math.random() * 100 + "vw";
+    speck.style.bottom = "-10px";
+    speck.style.animationDuration = Math.random() * 5 + 6 + "s";
+    speck.style.opacity = Math.random() * 0.6 + 0.4;
+
+    dust.appendChild(speck);
+    setTimeout(() => speck.remove(), 12000);
+}
+
+setInterval(makeDust, 250);
+</script>
+
+</body>
+</html>
